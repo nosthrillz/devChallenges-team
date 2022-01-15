@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Card from "./Card";
+import { TEAM } from "./data";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h1>The creative crew</h1>
+        <div>
+          <h2>Who we are</h2>
+          <p>
+            We are a team of creatively diverse, driven, innovative individuals
+            working in various locations from the world.
+          </p>
+        </div>
       </header>
+      <main className="card-list">
+        {TEAM.map((person, idx) => (
+          <Card
+            key={idx}
+            img={person.img}
+            name={person.name}
+            role={person.role}
+          />
+        ))}
+      </main>
+      <footer>
+        created by{" "}
+        <a
+          href="https://github.com/nosthrillz"
+          target="_blank"
+          rel="noreferrer"
+        >
+          NoSThrillZ
+        </a>{" "}
+        - devChallenges.io
+      </footer>
     </div>
   );
 }
